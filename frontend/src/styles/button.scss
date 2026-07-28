@@ -1,0 +1,19 @@
+.btn{
+    font-family: "Electrolize", sans-serif;
+    border: none;
+    outline: none; 
+    padding-inline: 1.5rem;
+    padding-block: 0.75rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &.primary-btn{
+        background-color: rgb(220, 34, 65);
+        color: whitesmoke;
+    }
+
+    &:active{
+        transform: scale(1.02);
+    }
+}

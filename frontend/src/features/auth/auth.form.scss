@@ -1,0 +1,116 @@
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #121214;
+
+  .login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 2.25rem;
+    background: rgba(30, 30, 34, 0.85);
+    backdrop-filter: blur(16px);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    h1 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #f4f4f5;
+      text-align: center;
+      margin: 0;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    p {
+      text-align: center;
+      font-size: 0.875rem;
+      color: #a1a1aa;
+      margin: 0;
+    }
+  }
+
+  a {
+    color: rgb(220, 34, 65);
+    font-weight: 600;
+    text-decoration: none;
+    &:hover { opacity: 0.85; }
+  }
+
+  .error-message {
+    background: rgba(239, 68, 68, 0.12);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    padding: 0.625rem 0.875rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #e4e4e7;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 0.625rem;
+      color: #f4f4f5;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.2s ease;
+
+      &::placeholder { color: #71717a; }
+      &:focus {
+        border-color: rgb(220, 34, 65);
+      }
+    }
+
+    .password-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      input { padding-right: 2.5rem; }
+
+      .toggle-icon {
+        position: absolute;
+        right: 0.875rem;
+        color: #71717a;
+        cursor: pointer;
+        transition: color 0.2s ease;
+        &:hover { color: #f4f4f5; }
+      }
+    }
+  }
+
+  .btn {
+    padding: 0.9rem;
+    font-weight: 800;
+    font-size: 0.875rem;
+    width: 100%;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
