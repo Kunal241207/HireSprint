@@ -94,11 +94,12 @@ async function generateInterviewReport({resumeText, selfDescription, jobDescript
 
 async function pdfFromHtml(htmlContent) {
     const browser = await puppeteer.launch({
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        headless: 'shell',
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
     })
     const page = await browser.newPage()
     await page.setContent(htmlContent, { waitUntil: 'networkidle0' })
-    const pdf = await page.pdf({ format: 'A4', margin: { top: '16mm', bottom: '16mm', left: '13mm', right: '13mm' } })
+    const pdf = await page.pdf({ format: 'A4', margin: { top: '16mm', bottom: '16mm', left: '13mm', right: '13mm' }, printBackground: true })
     await browser.close()
     return pdf
 }
@@ -109,13 +110,14 @@ async function generatePdf({resumeText, selfDescription, jobDescription}) {
         properties: {
             Html: {
                 type: "STRING",
-                description: "The complete, fully styled HTML content of the resume which will be converted to PDF using library like puppeteer."
+                description: "The complete, fully styled HTML content of the optimised resume which will be converted to PDF using library like puppeteer."
             }
         },
         required: ["Html"]
     }
 
-    const prompt = `Generate an optimised resume for the candidate from the following HTML content: 
+    const prompt = `You are an expert resume writer and career coach.
+                    Generate a tailored, professionally formatted resume for the candidate from the following HTML content: 
                     Resume Text: ${resumeText}
                     Self Description: ${selfDescription}
                     Job Description: ${jobDescription}
